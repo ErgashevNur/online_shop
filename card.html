@@ -48,10 +48,19 @@
           </ul>
         </div>
 
-        <div class="navbar-end">
+        <div class="navbar-end gap-5">
           <!-- <button>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button> -->
+
+          <div class="indicator gap-3">
+            <span id="basket" class="indicator-item badge badge-secondary"
+              >0</span
+            >
+            <button class="btn">
               <i class="fa-solid fa-cart-shopping"></i>
-            </button> -->
+            </button>
+          </div>
 
           <label class="swap swap-rotate">
             <!-- this hidden checkbox controls the state -->
@@ -92,7 +101,7 @@
       <section class="products-container ml-auto mr-auto">
         <div class="align-elements">
           <div class="overflow-x-auto">
-            <table class="table ml-auto mr-auto max-w-2xl">
+            <table class="table ml-auto mr-auto max-w-4xl">
               <!-- head -->
               <thead>
                 <tr>
@@ -143,9 +152,7 @@
 
                       <p class="amount text-2xl">1</p>
 
-                      <div class="minus-btn btn btn-active">
-                        <i class="fa-solid fa-minus"></i>
-                      </div>
+                      <button class="decrementItem btn btn-active">-</button>
                     </td>
                     <th>
                       <button

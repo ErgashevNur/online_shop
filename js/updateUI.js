@@ -1,4 +1,4 @@
-import { addProduct, incrementItem, deleteElement } from "./productLocal.js";
+import { addProduct, deleteElement, updateAmount } from "./productLocal.js";
 
 const homeCartTemplate = document.getElementById("home-card-template");
 const productsContainer = document.getElementById("products-container");
@@ -57,6 +57,7 @@ export const updateTbodyUI = (products) => {
     const amountEl = clone.querySelector(".amount");
     const deleteBtnEl = clone.querySelector(".delete-btn");
     const incrementItemEl = clone.querySelector(".incrementItem");
+    const decrementItemEl = clone.querySelector(".decrementItem");
 
     image.src = thumbnail;
     titleEl.textContent = title;
@@ -65,13 +66,25 @@ export const updateTbodyUI = (products) => {
     amountEl.textContent = amount;
     deleteBtnEl.setAttribute("data-id", id);
     incrementItemEl.setAttribute("data-id", id);
+    decrementItemEl.setAttribute("data-id", id);
 
     deleteBtnEl.addEventListener("click", (e) => {
       deleteElement(e);
     });
 
+    let currentAmount = prodcut.amount;
+
     incrementItemEl.addEventListener("click", (e) => {
-      incrementItem(e);
+      currentAmount++;
+      amountEl.textContent = currentAmount;
+      updateAmount(e, currentAmount);
+    });
+
+    // decrement
+    decrementItemEl.addEventListener("click", (e) => {
+      currentAmount--;
+      amountEl.textContent = currentAmount;
+      updateAmount(e, currentAmount);
     });
 
     // appendchild
